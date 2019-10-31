@@ -18,13 +18,13 @@ def SNMP_V2MIB_GET(HOST, COMMUNITY, VAR, INSTANCE): #basic info gathering via SN
 
     errorIndication, errorStatus, errorIndex, varBinds = next(iterator)
 
-    if errorIndication:  # SNMP engine errors
+    if errorIndication:  # SNMP.py engine errors
         print(errorIndication)
     else:
-        if errorStatus:  # SNMP agent errors
+        if errorStatus:  # SNMP.py agent errors
             print('%s at %s' % (errorStatus.prettyPrint(), varBinds[int(errorIndex)-1] if errorIndex else '?'))
         else:
-            for varBind in varBinds:  # SNMP response contents
+            for varBind in varBinds:  # SNMP.py response contents
                 return [x.prettyPrint() for x in varBind]
 def SNMP_MIB_WALK(HOST, COMMUNITY,MIB, VAR):
     for (errorIndication,
@@ -57,13 +57,13 @@ def SNMP_MIB_GET(HOST, COMMUNITY,MIB, VAR, INSTANCE): #info gather via custom MI
 
     errorIndication, errorStatus, errorIndex, varBinds = next(iterator)
 
-    if errorIndication:  # SNMP engine errors
+    if errorIndication:  # SNMP.py engine errors
         print(errorIndication)
     else:
-        if errorStatus:  # SNMP agent errors
+        if errorStatus:  # SNMP.py agent errors
             print('%s at %s' % (errorStatus.prettyPrint(), varBinds[int(errorIndex)-1] if errorIndex else '?'))
         else:
-            for varBind in varBinds:  # SNMP response contents
+            for varBind in varBinds:  # SNMP.py response contents
                 return [x.prettyPrint() for x in varBind]
 
 def SNMP_OID_GET(HOST, COMMUNITY, OID): #more advanced gathering based on the OID
@@ -77,13 +77,13 @@ def SNMP_OID_GET(HOST, COMMUNITY, OID): #more advanced gathering based on the OI
 
     errorIndication, errorStatus, errorIndex, varBinds = next(iterator)
 
-    if errorIndication:  # SNMP engine errors
+    if errorIndication:  # SNMP.py engine errors
         print(errorIndication)
     else:
-        if errorStatus:  # SNMP agent errors
+        if errorStatus:  # SNMP.py agent errors
             print('%s at %s' % (errorStatus.prettyPrint(), varBinds[int(errorIndex)-1] if errorIndex else '?'))
         else:
-            for varBind in varBinds:  # SNMP response contents
+            for varBind in varBinds:  # SNMP.py response contents
                 return [x.prettyPrint() for x in varBind]
 
 
