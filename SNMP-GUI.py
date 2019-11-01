@@ -115,7 +115,10 @@ class Ui_Dialog(object):
         self.SNMP_LIST.setSortingEnabled(__sortingEnabled)
 
     def SET_TEXT_OID(self):
-        print ("OID")
+
+        print(self.HOST.text())
+        print(self.COMMUNITY.text())
+        print(self.OID.text())
 
         __sortingEnabled = self.SNMP_LIST.isSortingEnabled()
         self.SNMP_LIST.setSortingEnabled(False)
@@ -124,7 +127,8 @@ class Ui_Dialog(object):
         item.setText(_translate("Dialog", " "))
         self.SNMP_LIST.setSortingEnabled(__sortingEnabled)
         item = self.SNMP_LIST.item(0)
-        item.setText(_translate("Dialog", SNMP_OID_GET(self.HOST,self.COMMUNITY,self.OID)))
+        item.setText(_translate("Dialog", SNMP_OID_GET(self.HOST.text(),self.COMMUNITY.text(),self.OID.text())[1]))
+        print(SNMP_OID_GET(self.HOST.text(),self.COMMUNITY.text(),self.OID.text()))
         self.SNMP_LIST.setSortingEnabled(__sortingEnabled)
 
 
